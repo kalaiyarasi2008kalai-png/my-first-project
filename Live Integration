@@ -1,0 +1,4 @@
+Form submission sends POST request to FastAPI backend
+
+Result appears below input box in real-time
+
