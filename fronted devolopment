@@ -1,0 +1,162 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Learning Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>AI Learning Assistant</h1>
+
+    <form id="taskForm">
+      <label for="task">Choose a task:</label>
+
+      <select id="task" name="task">
+        <option value="Explain">Explain</option>
+        <option value="QnA">QnA</option>
+        <option value="Quiz">Quiz</option>
+        <option value="Summary">Summary</option>
+        <option value="Recommend Path">Recommend Path</option>
+      </select>
+
+      <label for="userInput">Enter your content:</label>
+
+      <textarea
+        id="userInput"
+        name="userInput"
+        rows="8"
+        placeholder="Type your question or content here..."
+      ></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <div id="result" class="result">
+      <h2>Result</h2>
+      <p>Your result will appear here.</p>
+    </div>
+  </div>
+
+</body>
+</html>
+```
+```css
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f7fb;
+  color: #222;
+  min-height: 100vh;
+  padding: 30px 15px;
+}
+
+.container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  text-align: center;
+  color: #2563eb;
+  margin-bottom: 25px;
+}
+
+label {
+  display: block;
+  margin: 15px 0 8px;
+  font-weight: 600;
+}
+
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+select:focus,
+textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 13px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.result {
+  margin-top: 25px;
+  padding: 20px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  min-height: 100px;
+}
+
+.result h2 {
+  margin-bottom: 10px;
+  color: #334155;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  body {
+    padding: 15px 10px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  select,
+  textarea,
+  button {
+    font-size: 15px;
+  }
+}
+```
