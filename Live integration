@@ -1,0 +1,66 @@
+from fastapi import FastAPI, Form
+from fastapi.responses import HTMLResponse
+
+app = FastAPI()
+
+
+@app.get("/", response_class=HTMLResponse)
+async def home():
+    return """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>FastAPI Form</title>
+    </head>
+    <body>
+        <h2>Submit something</h2>
+
+        <form id="myForm">
+            <input
+                type="text"
+                id="message"
+                name="message"
+                placeholder="Enter your message"
+                required
+            >
+            <button type="submit">Send</button>
+        </form>
+
+        <div id="result"></div>
+
+        <script>
+            const form = document.getElementById("myForm");
+            const result = document.getElementById("result");
+
+            form.addEventListener("submit", async (event) => {
+                event.preventDefault();
+
+                const message = document.getElementById("message").value;
+
+                result.textContent = "Processing...";
+
+                const response = await fetch("/submit", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: new URLSearchParams({
+                        message: message
+                    })
+                });
+
+                const data = await response.json();
+
+                result.textContent = data.result;
+            });
+        </script>
+    </body>
+    </html>
+    """
+
+
+@app.post("/submit")
+async def submit(message: str = Form(...)):
+    return {
+        "result": f"FastAPI received: {message}"
+    }
